@@ -97,6 +97,8 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
+const history = []
+
 function santaLocator() {
     const randomCityIndex = Math.floor(Math.random() * cities.length);
     const randomCity = cities[randomCityIndex]
@@ -112,12 +114,13 @@ function santaLocator() {
         .setContent(`${randomActivity}`)
         .openOn(map)
 
-    const result = `Found him in ${randomCity.name}! with this activity :"${randomActivity}"`;
+    const result = `Found him in ${randomCity.name}! ${randomActivity}`;
     history.push(result);
     if (history.length > 5) {
         history.shift()
     }
     updateHistory();
+
 }
 
 const niceThingsToSay = [
@@ -141,7 +144,7 @@ function holidayMessage() {
 
 function updateHistory() {
     const historyList = document.getElementById('historyList');
-
+    historyList.innerHTML = '';
     for (let i = history.length - 1; i >= 0; i--) {
         const entry = history[i];
         const listItem = document.createElement('li');
@@ -149,4 +152,3 @@ function updateHistory() {
         historyList.appendChild(listItem)
     }
 }
-
