@@ -80,7 +80,11 @@ const activities = ['Santa is not leaving a single crumb back.',
     'Santa is transporting an UBER passenger.',
     'Santa is trying to get that gift out of the bag.',
     'Santa is delivering the 100th gaming laptop of tonight. The kids these days...',
-    'Santa is tuning into the local radio to enjoy some tunes.']
+    'Santa is tuning into the local radio to enjoy some tunes.',
+    'Santa is contemplating if he should change his name to Jonathan.',
+    'Santa is feeding some stray cats.',
+    'Santa has just missed the Codedex swag drop. Better luck next year!',
+    'Santa is considering to revive Daft Punk.']
 
 document.getElementById('searchButton').addEventListener("click", santaLocator);
 
