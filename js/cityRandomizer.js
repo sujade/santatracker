@@ -1,27 +1,3 @@
-const countDownDate = new Date("Dec 24, 2023 00:00:00").getTime();
-
-let countDown = setInterval(function () {
-
-    const now = new Date().getTime();
-
-    const distance = countDownDate - now;
-    const oneMinute = 1000 * 60;
-    const oneHour = oneMinute * 60;
-    const oneDay = oneHour * 24;
-    const days = Math.floor(distance / oneDay);
-    const hours = Math.floor((distance % oneDay) / oneHour);
-    const minutes = Math.floor((distance % oneHour) / oneMinute);
-    const seconds = Math.floor((distance % oneMinute) / 1000);
-
-    document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-        + minutes + "m " + seconds + "s ";
-
-    if (distance <= 0) {
-        clearInterval(countDown);
-        document.getElementById("demo").innerHTML = "Merry Christmas and Happy Holidays!";
-    }
-}, 1000);
-
 class City {
     constructor(name, latitude, longitude) {
         this.name = name;
@@ -98,6 +74,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 const history = []
+let lastCity = undefined
 
 function santaLocator() {
     const randomCityIndex = Math.floor(Math.random() * cities.length);
@@ -121,25 +98,13 @@ function santaLocator() {
     }
     updateHistory();
 
-}
-
-const niceThingsToSay = [
-    'Warmest wishes!',
-    'Wishing you a wonderful holiday season!',
-    'Happy holidays!',
-    'Seasons greetings!',
-    'Warm and cozy holiday wishes!',
-    'Have a jolly holiday',
-    'Cheers to warm holiday memories!',
-    'Merry Christmas!'
-]
-
-document.getElementById('gift').addEventListener("click", holidayMessage);
-
-function holidayMessage() {
-    const randomWishIndex = Math.floor(Math.random() * niceThingsToSay.length);
-    const randomWish = niceThingsToSay[randomWishIndex]
-    document.getElementById('message').innerText = `${randomWish}`
+    if (lastCity !== undefined) {
+        let polyline = L.polyline([
+            [randomCity.latitude, randomCity.longitude],
+            [lastCity.latitude, lastCity.longitude]
+        ], {color: 'red'}).addTo(map);
+    }
+    lastCity = randomCity
 }
 
 function updateHistory() {
