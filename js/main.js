@@ -114,7 +114,7 @@ function santaLocator() {
         .setContent(`${randomActivity}`)
         .openOn(map)
 
-    const result = `Found him in ${randomCity.name}! ${randomActivity}`;
+    const result = `Santa was in ${randomCity.name} just now!`;
     history.push(result);
     if (history.length > 5) {
         history.shift()
