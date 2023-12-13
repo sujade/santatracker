@@ -135,8 +135,28 @@
 
 <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
     <p class="col-12 text-center">Team Banana</p>
-    <p class="col-12 text-center">Made for Codedex Holiday Hackathon 2023</p></footer>
 
+    <div id='gift' class="col-12 text-center mb-3"><img class="gift col-12" data-bs-toggle="modal" data-bs-target="#exampleModal" src="images/gift.png"></div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Hey, it's the holiday season!</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="message">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Thanks!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p class="col-12 text-center">Made for Codedex Holiday Hackathon 2023</p></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
