@@ -9,11 +9,9 @@ const niceThingsToSay = [
     'Merry Christmas!'
 ]
 
-document.getElementById('gift').addEventListener("click", holidayMessage);
-
-function holidayMessage() {
+function pickHolidayMessage() {
     const randomWishIndex = Math.floor(Math.random() * niceThingsToSay.length);
-    const randomWish = niceThingsToSay[randomWishIndex]
-    document.getElementById('message').innerText = `${randomWish}`
+    document.getElementById('message').innerText = niceThingsToSay[randomWishIndex]
 }
 
+document.getElementById('gift').addEventListener("click", pickHolidayMessage);

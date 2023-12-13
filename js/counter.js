@@ -13,8 +13,7 @@ let countDown = setInterval(function () {
     const minutes = Math.floor((distance % oneHour) / oneMinute);
     const seconds = Math.floor((distance % oneMinute) / 1000);
 
-    document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-        + minutes + "m " + seconds + "s ";
+    document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s `;
 
     if (distance <= 0) {
         clearInterval(countDown);

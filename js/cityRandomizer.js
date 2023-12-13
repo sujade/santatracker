@@ -63,9 +63,6 @@ const activities = ['Santa is not leaving a single crumb back.',
     'Santa has just missed the Codedex swag drop. Better luck next year!',
     'Santa is considering to revive Daft Punk.']
 
-document.getElementById('searchButton').addEventListener("click", santaLocator);
-
-
 const map = L.map('map').setView([51.505, -0.09], 13);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -76,38 +73,54 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 const history = []
 let lastCity = undefined
 
-function santaLocator() {
+function pickRandomCity() {
     const randomCityIndex = Math.floor(Math.random() * cities.length);
-    const randomCity = cities[randomCityIndex]
+    return cities[randomCityIndex];
+}
 
+function pickRandomActivity() {
     const randomActivityIndex = Math.floor(Math.random() * activities.length);
-    const randomActivity = activities[randomActivityIndex]
+    return activities[randomActivityIndex];
+}
 
-    document.getElementById('locationResult').innerText = `Found him in ${randomCity.name}!`
-    L.marker([randomCity.latitude, randomCity.longitude]).addTo(map);
-    map.setView([randomCity.latitude, randomCity.longitude], 13);
-    const popup = L.popup()
-        .setLatLng([randomCity.latitude, randomCity.longitude])
-        .setContent(`${randomActivity}`)
-        .openOn(map)
-
-    const result = `Santa was in ${randomCity.name}!`;
+function addCityToLog(currentCity) {
+    const result = `Santa was in ${currentCity.name}!`;
     history.push(result);
     if (history.length > 5) {
         history.shift()
     }
-    updateHistory();
+}
 
+function markPathOnMap(currentCity) {
     if (lastCity !== undefined) {
-        let polyline = L.polyline([
-            [randomCity.latitude, randomCity.longitude],
+        L.polyline([
+            [currentCity.latitude, currentCity.longitude],
             [lastCity.latitude, lastCity.longitude]
         ], {color: 'red'}).addTo(map);
     }
-    lastCity = randomCity
+    lastCity = currentCity
 }
 
-function updateHistory() {
+function updateLocateBar(currentCity) {
+    document.getElementById('locationResult').innerText = `Found him in ${currentCity.name}!`
+}
+
+function addActivityPopupToMap(currentCity, currentActivity) {
+    L.popup()
+        .setLatLng([currentCity.latitude, currentCity.longitude])
+        .setContent(currentActivity)
+        .openOn(map);
+}
+
+function setMapPosition(randomCity) {
+    map.setView([randomCity.latitude, randomCity.longitude], 13);
+}
+
+function addCityToMap(currentCity) {
+    L.marker([currentCity.latitude, currentCity.longitude]).addTo(map);
+}
+
+function updateLogInDom() {
     const historyList = document.getElementById('historyList');
     historyList.innerHTML = '';
     for (let i = history.length - 1; i >= 0; i--) {
@@ -117,3 +130,17 @@ function updateHistory() {
         historyList.appendChild(listItem)
     }
 }
+
+function locateSanta() {
+    const randomCity = pickRandomCity();
+    const randomActivity = pickRandomActivity();
+    updateLocateBar(randomCity);
+    addCityToMap(randomCity);
+    setMapPosition(randomCity);
+    addActivityPopupToMap(randomCity, randomActivity);
+    addCityToLog(randomCity);
+    updateLogInDom();
+    markPathOnMap(randomCity);
+}
+
+document.getElementById('searchButton').addEventListener("click", locateSanta);
