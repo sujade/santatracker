@@ -53,7 +53,16 @@ const cities = [
     new City ('Ankara', 39.925533, 32.866287),
     new City ('Hamburg', 53.551086, 9.993682),
     new City ('Florence', 43.769562, 11.255814),
-    new City ('Atlantis', 31.415538, -24.459229)
+    new City ('Atlantis', 31.415538, -24.459229),
+    new City ('Seoul', 37.532600, 127.024612),
+    new City ('Cape Town', -33.918861, 18.423300),
+    new City ('Casablanca', 33.589886, -7.603869),
+    new City ('Nairobi', -1.286389, 36.817223),
+    new City ('Mogadishu', 2.046934, 45.318161),
+    new City ('Toronto', 43.651070, -79.347015),
+    new City ('Mexico City', 19.432608, -99.133209),
+    new City ('Buenos Aires',  -34.603722,  -58.381592),
+    new City (' Rio de Janeiro',  -22.908333,  -43.196388)
     ]
 
 const activities = ['Santa is not leaving a single crumb back.',
@@ -68,7 +77,10 @@ const activities = ['Santa is not leaving a single crumb back.',
     'Santa is full of cookies and milk.',
     'Santa is growing an appreciation for K-Pop.',
     'Santa is off to collect that Christmas EDM mixtape.',
-    'Santa is transporting an UBER passenger.']
+    'Santa is transporting an UBER passenger.',
+    'Santa is trying to get that gift out of the bag.',
+    'Santa is delivering the 100th gaming laptop of tonight. The kids these days...',
+    'Santa is tuning into the local radio to enjoy some tunes.']
 
 document.getElementById('searchButton').addEventListener("click", santaLocator);
 
