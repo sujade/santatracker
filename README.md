@@ -2,7 +2,7 @@
 
 This is a little fun web app that locates where Santa has been throughout his quest to distribute gifts. By hiding fun little messages, the team has tried to create an entertaining and easy-to-use experience and bring people to giggles during the holiday season.
 
-Link to project: https://sujade.github.io/santatracker
+Live Version: https://sujade.github.io/santatracker
 
 
 <h1><strong>How It's Made</strong></h1>
