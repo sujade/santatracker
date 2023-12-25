@@ -17,6 +17,6 @@ let countDown = setInterval(function () {
 
     if (distance <= 0) {
         clearInterval(countDown);
-        document.getElementById("demo").innerHTML = "Merry Christmas and Happy Holidays!";
+        document.getElementById("countdown").innerHTML = "Merry Christmas and Happy Holidays!";
     }
 }, 1000);
