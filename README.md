@@ -16,5 +16,4 @@ The project was mostly planned around the fact that it should be fun. We came up
 <ul>
 <li>Along the way, the team had to learn how to overcome obstacles such as cleaning up the code so that it could be read easier and better. </li>
 <li>Our research skills were put to the test since most of the team were still learners and we managed to implement an API that we'd never used before. </li>
-<li>Getting enough sleep is crucial. </li>
-</ul
+</ul>

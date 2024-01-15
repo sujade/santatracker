@@ -60,7 +60,7 @@ const activities = ['Santa is not leaving a single crumb back.',
     'Santa is tuning into the local radio to enjoy some tunes.',
     'Santa is contemplating if he should change his name to Jonathan.',
     'Santa is feeding some stray cats.',
-    'Santa has just missed the Codedex swag drop. Better luck next year!',
+    'Santa has just missed the Codédex swag drop. Better luck next year!',
     'Santa is considering to revive Daft Punk.']
 
 const map = L.map('map').setView([51.505, -0.09], 13);
